@@ -1,0 +1,5 @@
+C:\WebSites\AgendaOnline\AgendaOnline.Servicos\bin\Debug\AgendaOnline.Servicos.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Servicos\bin\Debug\AgendaOnline.Servicos.pdb
+C:\WebSites\AgendaOnline\AgendaOnline.Servicos\obj\Debug\AgendaOnline.Servicos.csprojResolveAssemblyReference.cache
+C:\WebSites\AgendaOnline\AgendaOnline.Servicos\obj\Debug\AgendaOnline.Servicos.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Servicos\obj\Debug\AgendaOnline.Servicos.pdb

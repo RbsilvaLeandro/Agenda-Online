@@ -1,0 +1,6 @@
+C:\WebSites\AgendaOnline\AgendaOnline.Dominio\bin\Debug\AgendaOnline.Dominio.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Dominio\bin\Debug\AgendaOnline.Dominio.pdb
+C:\WebSites\AgendaOnline\AgendaOnline.Dominio\obj\Debug\AgendaOnline.Dominio.csprojResolveAssemblyReference.cache
+C:\WebSites\AgendaOnline\AgendaOnline.Dominio\obj\Debug\AgendaOnline.Dominio.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Dominio\obj\Debug\AgendaOnline.Dominio.pdb
+C:\WebSites\AgendaOnline\AgendaOnline.Dominio\bin\Debug\AgendaOnline.Dominio.dll.config

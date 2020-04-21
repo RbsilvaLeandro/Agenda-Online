@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AgendaOnlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RazaoSocial" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="70" />
+    <Property Name="WebSite" Type="varchar" MaxLength="100" />
+    <Property Name="Contato" Type="varchar" MaxLength="40" />
+    <Property Name="Telefone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Celular" Type="varchar" MaxLength="20" />
+    <Property Name="ativo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Enderecos">
+    <Key>
+      <PropertyRef Name="IdEndereco" />
+    </Key>
+    <Property Name="IdEndereco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClienteId" Type="int" Nullable="false" />
+    <Property Name="Endereco" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="Complemento" Type="varchar" MaxLength="100" />
+    <Property Name="Cidade" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Clientes_IdCliente" Type="int" />
+  </EntityType>
+  <EntityType Name="Historico">
+    <Key>
+      <PropertyRef Name="IdHistorico" />
+    </Key>
+    <Property Name="IdHistorico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClienteId" Type="int" Nullable="false" />
+    <Property Name="HistoricoDescricao" Type="varchar" MaxLength="500" />
+    <Property Name="DataContato" Type="datetime" Nullable="false" />
+    <Property Name="Obs" Type="varchar" MaxLength="500" />
+    <Property Name="Clientes_IdCliente" Type="int" />
+  </EntityType>
+  <EntityType Name="Lembretes">
+    <Key>
+      <PropertyRef Name="IdLembrete" />
+    </Key>
+    <Property Name="IdLembrete" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClienteId" Type="int" Nullable="false" />
+    <Property Name="Lembrete" Type="varchar" MaxLength="200" />
+    <Property Name="Alerta" Type="varchar" MaxLength="100" />
+    <Property Name="DesabilitarLembretes" Type="bit" Nullable="false" />
+    <Property Name="Clientes_IdCliente" Type="int" />
+  </EntityType>
+  <EntityType Name="LogUsuario">
+    <Key>
+      <PropertyRef Name="IdLog" />
+    </Key>
+    <Property Name="IdLog" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="20" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="Operacao" Type="varchar" MaxLength="30" />
+    <Property Name="Valor" Type="varchar" MaxLength="500" />
+    <Property Name="Host" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Senha" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="FlagSenha" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Enderecos_dbo_Clientes_ClienteId">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Enderecos" Type="Self.Enderecos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Enderecos">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Enderecos_dbo_Clientes_Clientes_IdCliente">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+    <End Role="Enderecos" Type="Self.Enderecos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Enderecos">
+        <PropertyRef Name="Clientes_IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Historico_dbo_Clientes_ClienteId">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Historico" Type="Self.Historico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Historico">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Historico_dbo_Clientes_Clientes_IdCliente">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+    <End Role="Historico" Type="Self.Historico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Historico">
+        <PropertyRef Name="Clientes_IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Lembretes_dbo_Clientes_ClienteId">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Lembretes" Type="Self.Lembretes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Lembretes">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Lembretes_dbo_Clientes_Clientes_IdCliente">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+    <End Role="Lembretes" Type="Self.Lembretes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Lembretes">
+        <PropertyRef Name="Clientes_IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AgendaOnlineModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Enderecos" EntityType="Self.Enderecos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Historico" EntityType="Self.Historico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lembretes" EntityType="Self.Lembretes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LogUsuario" EntityType="Self.LogUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Enderecos_dbo_Clientes_ClienteId" Association="Self.FK_dbo_Enderecos_dbo_Clientes_ClienteId">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Enderecos" EntitySet="Enderecos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Enderecos_dbo_Clientes_Clientes_IdCliente" Association="Self.FK_dbo_Enderecos_dbo_Clientes_Clientes_IdCliente">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Enderecos" EntitySet="Enderecos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Historico_dbo_Clientes_ClienteId" Association="Self.FK_dbo_Historico_dbo_Clientes_ClienteId">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Historico" EntitySet="Historico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Historico_dbo_Clientes_Clientes_IdCliente" Association="Self.FK_dbo_Historico_dbo_Clientes_Clientes_IdCliente">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Historico" EntitySet="Historico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Lembretes_dbo_Clientes_ClienteId" Association="Self.FK_dbo_Lembretes_dbo_Clientes_ClienteId">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Lembretes" EntitySet="Lembretes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Lembretes_dbo_Clientes_Clientes_IdCliente" Association="Self.FK_dbo_Lembretes_dbo_Clientes_Clientes_IdCliente">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Lembretes" EntitySet="Lembretes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

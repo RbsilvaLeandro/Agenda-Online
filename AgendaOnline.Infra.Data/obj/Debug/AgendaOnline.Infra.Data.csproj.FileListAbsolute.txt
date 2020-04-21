@@ -1,0 +1,15 @@
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\bin\Debug\AgendaOnline.Infra.Data.dll.config
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\bin\Debug\AgendaOnline.Infra.Data.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\bin\Debug\AgendaOnline.Infra.Data.pdb
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\bin\Debug\AgendaOnline.Dominio.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\bin\Debug\EntityFramework.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\bin\Debug\AgendaOnline.Dominio.pdb
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\bin\Debug\EntityFramework.xml
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\obj\Debug\AgendaOnline.Infra.Data.csprojResolveAssemblyReference.cache
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\obj\Debug\AgendaOnline.Infra.Data.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\obj\Debug\AgendaOnline.Infra.Data.pdb
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\obj\Debug\AgendaOnline.Infra.Data.Migrations.AgendaV1.resources
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\obj\Debug\AgendaOnline.Infra.Data.csproj.GenerateResource.Cache
+C:\WebSites\AgendaOnline\AgendaOnline.Infra.Data\bin\Debug\AgendaOnline.Dominio.dll.config

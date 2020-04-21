@@ -1,0 +1,14 @@
+﻿
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.btnPadrao {
+    background-color: #009688 !important;
+    color: #fff !important;
+}
+
+#Div_AdicionaCliente {
+    margin-top:10px;
+}

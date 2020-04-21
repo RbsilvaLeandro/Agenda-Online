@@ -1,0 +1,13 @@
+C:\WebSites\AgendaOnline\AgendaOnline.Aplicacao\bin\Debug\AgendaOnline.Aplicacao.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Aplicacao\bin\Debug\AgendaOnline.Aplicacao.pdb
+C:\WebSites\AgendaOnline\AgendaOnline.Aplicacao\bin\Debug\AgendaOnline.Dominio.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Aplicacao\bin\Debug\AgendaOnline.Infra.Data.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Aplicacao\bin\Debug\AgendaOnline.Dominio.pdb
+C:\WebSites\AgendaOnline\AgendaOnline.Aplicacao\bin\Debug\AgendaOnline.Infra.Data.pdb
+C:\WebSites\AgendaOnline\AgendaOnline.Aplicacao\bin\Debug\AgendaOnline.Infra.Data.dll.config
+C:\WebSites\AgendaOnline\AgendaOnline.Aplicacao\obj\Debug\AgendaOnline.Aplicacao.csprojResolveAssemblyReference.cache
+C:\WebSites\AgendaOnline\AgendaOnline.Aplicacao\obj\Debug\AgendaOnline.Aplicacao.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Aplicacao\obj\Debug\AgendaOnline.Aplicacao.pdb
+C:\WebSites\AgendaOnline\AgendaOnline.Aplicacao\bin\Debug\EntityFramework.dll
+C:\WebSites\AgendaOnline\AgendaOnline.Aplicacao\bin\Debug\EntityFramework.xml
+C:\WebSites\AgendaOnline\AgendaOnline.Aplicacao\bin\Debug\AgendaOnline.Dominio.dll.config

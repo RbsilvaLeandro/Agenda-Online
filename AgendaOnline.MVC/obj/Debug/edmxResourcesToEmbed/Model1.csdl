@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AgendaOnlineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RazaoSocial" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="WebSite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Contato" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Celular" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ativo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Enderecos" Relationship="Self.FK_dbo_Enderecos_dbo_Clientes_ClienteId" FromRole="Clientes" ToRole="Enderecos" />
+    <NavigationProperty Name="Enderecos1" Relationship="Self.FK_dbo_Enderecos_dbo_Clientes_Clientes_IdCliente" FromRole="Clientes" ToRole="Enderecos" />
+    <NavigationProperty Name="Historico" Relationship="Self.FK_dbo_Historico_dbo_Clientes_ClienteId" FromRole="Clientes" ToRole="Historico" />
+    <NavigationProperty Name="Historico1" Relationship="Self.FK_dbo_Historico_dbo_Clientes_Clientes_IdCliente" FromRole="Clientes" ToRole="Historico" />
+    <NavigationProperty Name="Lembretes" Relationship="Self.FK_dbo_Lembretes_dbo_Clientes_ClienteId" FromRole="Clientes" ToRole="Lembretes" />
+    <NavigationProperty Name="Lembretes1" Relationship="Self.FK_dbo_Lembretes_dbo_Clientes_Clientes_IdCliente" FromRole="Clientes" ToRole="Lembretes" />
+  </EntityType>
+  <EntityType Name="Enderecos">
+    <Key>
+      <PropertyRef Name="IdEndereco" />
+    </Key>
+    <Property Name="IdEndereco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClienteId" Type="Int32" Nullable="false" />
+    <Property Name="Endereco" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Numero" Type="Int32" Nullable="false" />
+    <Property Name="Complemento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Cidade" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clientes_IdCliente" Type="Int32" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_dbo_Enderecos_dbo_Clientes_ClienteId" FromRole="Enderecos" ToRole="Clientes" />
+    <NavigationProperty Name="Clientes1" Relationship="Self.FK_dbo_Enderecos_dbo_Clientes_Clientes_IdCliente" FromRole="Enderecos" ToRole="Clientes" />
+  </EntityType>
+  <EntityType Name="Historico">
+    <Key>
+      <PropertyRef Name="IdHistorico" />
+    </Key>
+    <Property Name="IdHistorico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClienteId" Type="Int32" Nullable="false" />
+    <Property Name="HistoricoDescricao" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DataContato" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Obs" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Clientes_IdCliente" Type="Int32" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_dbo_Historico_dbo_Clientes_ClienteId" FromRole="Historico" ToRole="Clientes" />
+    <NavigationProperty Name="Clientes1" Relationship="Self.FK_dbo_Historico_dbo_Clientes_Clientes_IdCliente" FromRole="Historico" ToRole="Clientes" />
+  </EntityType>
+  <EntityType Name="Lembretes">
+    <Key>
+      <PropertyRef Name="IdLembrete" />
+    </Key>
+    <Property Name="IdLembrete" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClienteId" Type="Int32" Nullable="false" />
+    <Property Name="Lembrete" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Alerta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DesabilitarLembretes" Type="Boolean" Nullable="false" />
+    <Property Name="Clientes_IdCliente" Type="Int32" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_dbo_Lembretes_dbo_Clientes_ClienteId" FromRole="Lembretes" ToRole="Clientes" />
+    <NavigationProperty Name="Clientes1" Relationship="Self.FK_dbo_Lembretes_dbo_Clientes_Clientes_IdCliente" FromRole="Lembretes" ToRole="Clientes" />
+  </EntityType>
+  <EntityType Name="LogUsuario">
+    <Key>
+      <PropertyRef Name="IdLog" />
+    </Key>
+    <Property Name="IdLog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Operacao" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Valor" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Host" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Senha" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FlagSenha" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Enderecos_dbo_Clientes_ClienteId">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Enderecos" Type="Self.Enderecos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Enderecos">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Enderecos_dbo_Clientes_Clientes_IdCliente">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+    <End Role="Enderecos" Type="Self.Enderecos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Enderecos">
+        <PropertyRef Name="Clientes_IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Historico_dbo_Clientes_ClienteId">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Historico" Type="Self.Historico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Historico">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Historico_dbo_Clientes_Clientes_IdCliente">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+    <End Role="Historico" Type="Self.Historico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Historico">
+        <PropertyRef Name="Clientes_IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Lembretes_dbo_Clientes_ClienteId">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Lembretes" Type="Self.Lembretes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Lembretes">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Lembretes_dbo_Clientes_Clientes_IdCliente">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+    <End Role="Lembretes" Type="Self.Lembretes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Lembretes">
+        <PropertyRef Name="Clientes_IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AgendaOnlineEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="Enderecos" EntityType="Self.Enderecos" />
+    <EntitySet Name="Historico" EntityType="Self.Historico" />
+    <EntitySet Name="Lembretes" EntityType="Self.Lembretes" />
+    <EntitySet Name="LogUsuario" EntityType="Self.LogUsuario" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <AssociationSet Name="FK_dbo_Enderecos_dbo_Clientes_ClienteId" Association="Self.FK_dbo_Enderecos_dbo_Clientes_ClienteId">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Enderecos" EntitySet="Enderecos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Enderecos_dbo_Clientes_Clientes_IdCliente" Association="Self.FK_dbo_Enderecos_dbo_Clientes_Clientes_IdCliente">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Enderecos" EntitySet="Enderecos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Historico_dbo_Clientes_ClienteId" Association="Self.FK_dbo_Historico_dbo_Clientes_ClienteId">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Historico" EntitySet="Historico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Historico_dbo_Clientes_Clientes_IdCliente" Association="Self.FK_dbo_Historico_dbo_Clientes_Clientes_IdCliente">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Historico" EntitySet="Historico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Lembretes_dbo_Clientes_ClienteId" Association="Self.FK_dbo_Lembretes_dbo_Clientes_ClienteId">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Lembretes" EntitySet="Lembretes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Lembretes_dbo_Clientes_Clientes_IdCliente" Association="Self.FK_dbo_Lembretes_dbo_Clientes_Clientes_IdCliente">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Lembretes" EntitySet="Lembretes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
